@@ -27,3 +27,13 @@ app.directive('player', function(PlayerFactory) {
     }
   }
 })
+
+app.directive('albumList', function() {
+  return {
+    restrict: 'E',
+    scope: {
+      albums: '='
+    },
+    templateUrl: '/templates/allAlbumsTemplate.html'
+  }
+})
