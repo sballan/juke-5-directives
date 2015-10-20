@@ -67,3 +67,19 @@ app.directive('artistLink', function() {
     template: '<a ui-sref="artist({artistId: artist._id})">{{artist.name}}</a>'
   }
 })
+
+
+app.directive('doubleClick', function() {
+  return {
+    restrict: 'A',
+    scope: {
+      doubleClick: '&'
+    },
+    link: function(scope, element) {
+      element.on('dblclick', function() {
+        scope.doubleClick();
+      })
+    }
+  }
+
+})
