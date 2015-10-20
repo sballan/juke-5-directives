@@ -37,3 +37,23 @@ app.directive('albumList', function() {
     templateUrl: '/templates/allAlbumsTemplate.html'
   }
 })
+
+app.directive('songList', function(PlayerFactory) {
+  return {
+    restrict: 'E',
+    scope: {
+      songs: '='
+    },
+    link: function(scope) {
+      scope.isCurrent = function (song) {
+        var current = PlayerFactory.getCurrentSong();
+        return current && current._id == song._id;
+      };
+      scope.start = function (song) {
+        PlayerFactory.start(song, scope.songs);
+      };
+
+    },
+    templateUrl: '/templates/allSongsTemplate.html'
+  }
+})
