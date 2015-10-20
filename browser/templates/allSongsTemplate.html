@@ -15,7 +15,11 @@
 				</button>
 			</td>
 			<td>{{ song.name }}</td>
-			<td><span ng-repeat="artist in song.artists">{{ artist.name }} </span></td>
+			<td>
+				<span ng-repeat="artist in song.artists">
+					<artist-link artist="artist"></artist-link>
+				</span>
+			</td>
 			<td>{{ song.genres.join(', ') }}</td>
 		</tr>
 	</tbody>

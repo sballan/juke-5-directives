@@ -57,3 +57,13 @@ app.directive('songList', function(PlayerFactory) {
     templateUrl: '/templates/allSongsTemplate.html'
   }
 })
+
+app.directive('artistLink', function() {
+  return {
+    restrict: 'E',
+    scope: {
+      artist: '='
+    },
+    template: '<a ui-sref="artist({artistId: artist._id})">{{artist.name}}</a>'
+  }
+})
